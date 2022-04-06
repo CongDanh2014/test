@@ -1,0 +1,33 @@
+
+//variable
+$backgroundColor: rgb(255, 0, 212);
+
+@mixin bgc($bgcolor: blue){// default value is blue
+    background-color: $bgcolor;
+    @if $bgcolor == blue {
+        width: 100px;
+        height: 30px;
+    }
+}
+
+.btn {
+    padding: 4px 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: 0.3s;
+    //.btn:hover (& là viết tắt của cha nó)
+    &:hover{
+        cursor: pointer;
+        opacity: 0.9;
+        //background-color: green;
+        @include bgc(red);
+    }
+}
+
+.active {
+    background-color: $backgroundColor;
+}
+
+//mixin
+//@mixin nameMixin(){}
+//@include nameMixin();
